@@ -68,20 +68,16 @@ img[alt="dog icon"] {
     position: relative;
     right: 50px;
     bottom: 150px;
-
 }
 
 img[alt="bird icon"]{
     position: relative;
     bottom: 50px;
     left: 250px;
-
 }
 
 #positionMe{
-    position: relative;
-    top: 278px;
-    
+    position: relative;   
 }
 
 nav {
