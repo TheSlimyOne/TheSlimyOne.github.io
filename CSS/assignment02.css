@@ -78,6 +78,7 @@ img[alt="bird icon"]{
 
 #positionMe{
     position: relative;   
+    top: 250px;
 }
 
 nav {
