@@ -26,3 +26,8 @@ body {
     background: url(../images/freeGolfWallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
 }
+
+#link {
+    width: fit-content;
+    background-color: black;
+}
