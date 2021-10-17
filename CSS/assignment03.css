@@ -1,33 +1,28 @@
-  /* center-align table columns */
-  h1,
-  th,
-  td {
-      text-align: center;
-     
-      
-  }
-  
-  h1{
-      color: white;}
+/* center-align table columns */
 
-  table tr td, table tr th{
-      background-color: rgba(44, 48, 52, 0.75);
-  }
+h1,
+th,
+td {
+    text-align: center;
+}
 
-  button {
-      margin-left: 10px;
-      margin-right: 10px;
-  }
-  div {
-      margin-left: 20%;
-      margin-right: 20%;
-      background-color:rgba(44, 48, 52, 0.75);
-      
-  }
+h1 {
+    color: white;
+}
 
-  body{
-      height: 100%;
-      background: url(../images/freeGolfWallpaper.jpg) no-repeat center center fixed; 
-      background-size: cover;
-      
-  }
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div {
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgba(44, 48, 52, 0.75);
+}
+
+body {
+    height: 100%;
+    background: url(../images/freeGolfWallpaper.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
