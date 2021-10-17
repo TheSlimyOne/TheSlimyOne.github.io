@@ -1,2 +1,6 @@
 /* center-align table columns */
 th, td {text-align: center;} 
+
+button{
+    margin-left: 20px;
+}
