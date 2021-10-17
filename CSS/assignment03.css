@@ -27,7 +27,7 @@ body {
     background-size: cover;
 }
 
-#link {
-    width: fit-content;
+.link {
     background-color: black;
+    height: fit-content;
 }
