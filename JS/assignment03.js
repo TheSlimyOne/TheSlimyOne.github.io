@@ -14,6 +14,9 @@ for(let i=1; i<=18; i++) {
   // console.log(i);
   elem[i] = document.getElementById(i.toString());
   elem[i].children[4].children[0].onclick = function(){add1(elem[i]);};
+  elem[i].children[5].children[0].onclick = function(){sub1(elem[i]);};
+  
+
 }
 
 // create an "add1" function
@@ -27,7 +30,7 @@ function add1 (elem) {
   }
 }
 
-// create an "add1" function
+// create an "sub1" function
 function sub1 (elem) {
     if(elem.children[2].innerHTML != "-"){
         let currentScore = elem.children[2].innerHTML;
