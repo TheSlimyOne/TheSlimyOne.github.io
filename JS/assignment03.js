@@ -2,18 +2,30 @@ let elem = [];
 
 for(let i=1; i<=18; i++) {
     // console.log(i);
+    
     elem[i] = document.getElementById(i.toString());
-    elem[i].children[4].children[0].onclick = function(){add1(elem[i]); modifyOver(elem[i]); total(elem[i]);};
-    elem[i].children[4].children[1].onclick = function(){sub1(elem[i]); modifyOver(elem[i]); total(elem[i]);};
-    let warnBtn = document.createElement("button")
-    warnBtn.className = "btn btn-warning"
-    warnBtn.innerHTML = "C"
-    elem[i].children[4].appendChild(warnBtn);
 
+    // Creates all the buttons needed programmatically 
+    createButton("btn btn-success", "+", elem[i].children[4])
+    createButton("btn btn-danger", "-", elem[i].children[4])
+    createButton("btn btn-warning", "C", elem[i].children[4])
+
+    // Adds the events needed for each button
+    elem[i].children[4].children[0].onclick = function(){add1(elem[i]); calcOver(elem[i]); calcTotal(elem[i]);};
+    elem[i].children[4].children[1].onclick = function(){sub1(elem[i]); calcOver(elem[i]); calcTotal(elem[i]);};
+    elem[i].children[4].children[2].onclick = function(){clear(elem[i]); calcOver(elem[i]); calcTotal(elem[i]);};
 
 }
 
-// create an "add1" function
+// Create a new button element 
+function createButton (className, text, parent){
+    let btn = document.createElement("button");
+    btn.className = className
+    btn.innerHTML = text
+    parent.appendChild(btn);
+}
+
+// Create an "add1" function
 function add1 (elem) {
   if(elem.children[2].innerHTML == "-") 
     elem.children[2].innerHTML = "1";
@@ -24,7 +36,7 @@ function add1 (elem) {
   }
 }
 
-// create an "sub1" function
+// Create a "sub1" function
 function sub1 (elem) {
     if (elem.children[2].innerHTML != "-" && elem.children[2].innerHTML != "1"){
         let currentScore = elem.children[2].innerHTML;
@@ -33,17 +45,20 @@ function sub1 (elem) {
     }
   }
 
+// Clears the row
+function clear (elem){
+    elem.children[2].innerHTML = "-"
+    elem.children[3].innerHTML = "-"
+}
+
 // Calculating over function
-function modifyOver(elem){
+function calcOver(elem){
     if (elem.children[2].innerHTML != "-")
         elem.children[3].innerHTML = elem.children[1].innerHTML - elem.children[2].innerHTML;
-    else if(elem.children[3].innerHTML = "0"){
-        elem.children[3].innerHTML = "-";
-    }
 }
 
 // Calculating total function
-function total(){
+function calcTotal(){
     let totalPar = 0
     let totalScore = 0
     let totalOver = 0
