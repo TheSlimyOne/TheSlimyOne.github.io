@@ -66,7 +66,7 @@ function clear(elem) {
 // Calculating over function
 function calcOver(elem) {
     if (elem.children[2].innerHTML != "-")
-        elem.children[3].innerHTML = elem.children[1].innerHTML - elem.children[2].innerHTML;
+        elem.children[3].innerHTML = elem.children[2].innerHTML - elem.children[1].innerHTML;
 }
 
 // Calculating total function
