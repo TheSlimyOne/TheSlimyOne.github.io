@@ -89,6 +89,4 @@ function calcTotal() {
     totalTable.children[1].innerHTML = totalPar;
     totalTable.children[2].innerHTML = totalScore;
     totalTable.children[3].innerHTML = totalOver;
-
-
 }
