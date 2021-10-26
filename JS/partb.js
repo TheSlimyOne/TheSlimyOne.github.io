@@ -84,14 +84,28 @@ let table3b = createTable("table3b");
 div3b.appendChild(table3b);
 table3b.setAttribute("style", "border:1px solid black;");
 table3b.setAttribute("width", "100%");
-appendTableHeader(table3b, "Price * Qty");
 let total = 0;
+appendTableHeader4(table3b, "Item", "Price", "Qty", "Price * Qty");
 for (i = 1; i < 4; i++) {
-  let qty = document.getElementById("table03A").children[0].children[i].children[1].innerHTML;
-  let price = document.getElementById("table03A").children[0].children[i].children[2].innerHTML;
-  total += (qty * price);
+  rowItem = document.getElementById("table03A").children[0].children[i].children[0].innerHTML
+  rowPrice = document.getElementById("table03A").children[0].children[i].children[1].innerHTML
+  rowQty = document.getElementById("table03A").children[0].children[i].children[2].innerHTML
+
+  let qty = document.getElementById("table03A").children[0].children[i].children[2].innerHTML;
+  let price = document.getElementById("table03A").children[0].children[i].children[1].innerHTML;
+  
+  rowTotal = qty * price;
+  total += rowTotal;
+
+  appendTableRow4(table3b, rowItem, rowPrice, rowQty, rowTotal)
 }
-appendTableRow1(table3b, total);
+
+let table3bTotal = createTable("table3bTotal");
+div3b.appendChild(table3bTotal);
+table3bTotal.setAttribute("style", "border:1px solid black;");
+table3bTotal.setAttribute("width", "100%");
+appendTableHeader1(table3bTotal, "Grand Total")
+appendTableRow1(table3bTotal, total)
 
 // 9. Revise a non-object-oriented HTML form. Make it so the field in focus displays *only* its own error (not the errors of all the other fields), however, if the user clicks the "validate" button, then display all errors.
 // code below is from: https://www.guru99.com/practical-code-examples-using-javascript.html 
@@ -304,9 +318,8 @@ let formArray = [
 // }
 
 
-
-// append to tableobj a 1-column table header
-function appendTableHeader(tableobj, col1) {
+// append to tableobj a 4-column table header
+function appendTableHeader1(tableobj, col1) {
   // create column (table division) DOM objects
   let td1 = document.createElement("th");
   // set attributes of the cells
@@ -322,14 +335,43 @@ function appendTableHeader(tableobj, col1) {
 
 }
 
+// append to tableobj a 4-column table header
+function appendTableHeader4(tableobj, col1, col2, col3, col4) {
+  // create column (table division) DOM objects
+  let td1 = document.createElement("th");
+  let td2 = document.createElement("th");
+  let td3 = document.createElement("th");
+  let td4 = document.createElement("th");
+  // set attributes of the cells
+  td1.setAttribute("style", "border:1px solid black;")
+  td2.setAttribute("style", "border:1px solid black;")
+  td3.setAttribute("style", "border:1px solid black;")
+  td4.setAttribute("style", "border:1px solid black;")
+  // insert content into columns
+  td1.innerHTML = col1;
+  td2.innerHTML = col2;
+  td3.innerHTML = col3;
+  td4.innerHTML = col4;
+  // create table row DOM object
+  let tr = document.createElement("tr");
+  // append table divisions (columns) to table row
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
+  // append the row to the tbody element in the table
+  tableobj.children[0].appendChild(tr);
+
+}
+
 // append to tableobj a 1-column table row 
 function appendTableRow1(tableobj, col1) {
   // create column (table division) DOM objects
   let td1 = document.createElement("td");
-  // insert content into columns
-  td1.innerHTML = col1;
   // set attributes of the cells
   td1.setAttribute("style", "text-align: center; border:1px solid black;")
+  // insert content into columns
+  td1.innerHTML = col1;
   // create table row DOM object
   let tr = document.createElement("tr");
   // append table divisions (columns) to table row
@@ -354,6 +396,34 @@ function appendTableRow3(tableobj, col1, col2, col3) {
   tr.appendChild(td1);
   tr.appendChild(td2);
   tr.appendChild(td3);
+  // append the row to the tbody element in the table
+  tableobj.children[0].appendChild(tr);
+}
+
+// append to tableobj a 4-column table row 
+function appendTableRow4(tableobj, col1, col2, col3, col4) {
+  // create column (table division) DOM objects
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("td");
+  let td4 = document.createElement("td");
+  // insert content into columns
+  td1.innerHTML = col1;
+  td2.innerHTML = col2;
+  td3.innerHTML = col3;
+  td4.innerHTML = col4;
+  // set attributes of the cells
+  td1.setAttribute("style", "text-align: center; border:1px solid black;")
+  td2.setAttribute("style", "text-align: center; border:1px solid black;")
+  td3.setAttribute("style", "text-align: center; border:1px solid black;")
+  td4.setAttribute("style", "text-align: center; border:1px solid black;")
+  // create table row DOM object
+  let tr = document.createElement("tr");
+  // append table divisions (columns) to table row
+  tr.appendChild(td1);
+  tr.appendChild(td2);
+  tr.appendChild(td3);
+  tr.appendChild(td4);
   // append the row to the tbody element in the table
   tableobj.children[0].appendChild(tr);
 }
