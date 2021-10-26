@@ -91,11 +91,20 @@ function displayClubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-    // your code here !
+
+    // Getting all the old clubs
+    let clubs = JSON.parse(localStorage.getItem("clubsUndo"));
+    // store the array in local storage
+    let str = JSON.stringify(clubs);
+    localStorage.setItem("clubs", str);
+    // and refresh screen
+     window.location.href = "../HTML/clubDistanceList.html";
+        
 }
 
 // create a new (default) "clubs" array
 function resetAllClubDistances() {
+    
     // create 2d global array, called "clubs" throughout app
     // columns - 0: sortPosition, 1: clubAbbrev, 2: clubName, 
     // 3: avgDist, 4: minDist, 5: maxDist, 6: numOfShots, 
@@ -119,7 +128,7 @@ function resetAllClubDistances() {
         [1599, "Ptr", "Putter", 0, 0, 0, 0, 60.0, 3, 3],
     ];
     // store the array in local storage
-    let str = JSON.stringify(clubs);
+    str = JSON.stringify(clubs);
     localStorage.setItem("clubs", str);
     // and refresh screen
     window.location.href = "../HTML/clubDistanceList.html";

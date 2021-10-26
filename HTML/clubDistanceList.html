@@ -28,7 +28,7 @@
                     <th class='cmn_alignRight cmn_hidden'>Num</th>
                     <th class='cmn_fullHeight'></th>
                     <th class='cmn_fullHeight'>Club
-                        <button class='btn btn-warning cmn_noPadding cmn_fullHeight' onclick='displayClubEntry(); // called if user clicked'>
+                        <button class='btn btn-warning cmn_noPadding cmn_fullHeight' onclick='displayClubEntry(), checkAmt(); // called if user clicked'>
 			    &nbsp;&nbsp;+&nbsp;&nbsp;</button></th>
                 </tr>
             </tbody>
@@ -47,6 +47,13 @@
     <script src='../JS/clubMeNow.js'></script>
     <script>
         let clubs = loadClubDistances(); // called first
+
+        function checkAmt() {
+            if (clubs.length >= 14){
+                alert("Warning: you are only allowed to carry 14 clubs in your golf bag in match play competition.")
+            }
+        }
+
     </script>
 
 </body>

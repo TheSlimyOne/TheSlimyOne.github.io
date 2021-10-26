@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+    
     <div class='container'>
 
         <h1>Add Club</h1>
@@ -22,7 +22,7 @@
             <div class='form-group'>
                 <label for='clubName'></label>
                 <input name='clubName' id='clubName' type='text' class='form-control cmn_moreHeight' placeholder='Driver' required /><br>
-                <button class='btn btn-success cmn_fullHeight' onclick='addClub();'>&nbsp;&nbsp;&#x2714;&nbsp;&nbsp;</button>
+                <button class='btn btn-success cmn_fullHeight' onclick='addClub(document.getElementById("clubName").value);'>&nbsp;&nbsp;&#x2714;&nbsp;&nbsp;</button>
                 <button class='btn btn-danger cmn_fullHeight' onclick='cancelClub();'>&nbsp;&nbsp;X&nbsp;&nbsp;</button>
                 <br>
                 <br>
@@ -41,12 +41,18 @@
         let clubRow = parseInt(localStorage.getItem('club'));
         // retrieve the "clubs" array
         let clubs = JSON.parse(localStorage.getItem('clubs'));
-        // display the full clubName of the user-chosen club
-        let newClubName;
-        let newClubDistances;
 
-        function addClub() {
-            // your code here
+        function addClub(newClubName) {
+
+            // save current clubs array for "Undo" functionality
+            let str = JSON.stringify(clubs);
+            localStorage.setItem("clubsUndo", str);
+            
+            clubs[clubs.length] = [clubRow, newClubName, newClubName, 0, 0, 0, 0, 0, 0, 0, 0];
+
+            str = JSON.stringify(clubs);
+            localStorage.setItem("clubs", str);
+
         }
 
         // navigate to club distance LIST screen
