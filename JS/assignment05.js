@@ -94,7 +94,7 @@ now = dayjs()
     localStorage.setItem("lastRequest", JSON.stringify(dayjs().add(24, "h")))
   }
 xhttp.open("GET", URL, true);
-  xhttp.send();
+xhttp.send();
 function loadContent() {
   
   
