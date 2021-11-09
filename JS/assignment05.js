@@ -257,7 +257,7 @@ function makeNewArray(){
         "TotalConfirmed": country.TotalConfirmed,
         "TotalDeaths" : country.TotalDeaths, 
         "Population": populations[country.Slug], 
-        "TotalConfirmedPer100000" : Math.round(100000 * country.TotalDeaths / populations[country.Slug])
+        "TotalConfirmedPer100000" : Math.round(100000 * country.TotalConfirmed / populations[country.Slug])
       })
     }
     
